@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nice Looking Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    .container {
+      max-width: 800px; /* Adjust the width as needed */
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-section {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group textarea {
+      resize: vertical;
+    }
+    .form-group button[type="submit"] {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Define column layouts */
+    .form-section {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* One column */
+    .form-section .one-col {
+      width: 100%;
+    }
+
+    /* Two columns */
+    .form-section .two-col {
+      width: 50%;
+    }
+
+    /* Three columns */
+    .form-section .three-col {
+      width: 33.33%;
+    }
+
+    /* Add some space between the columns */
+    .form-section .form-group {
+      margin-right: 10px;
+    }
+
+    /* Remove right margin for last form-group in each row */
+    .form-section .one-col .form-group:last-child,
+    .form-section .two-col .form-group:last-child,
+    .form-section .three-col .form-group:last-child {
+      margin-right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="myForm">
+      <!-- Section I: DPIA - dropdown -->
+      <div class="form-section">
+        <div class="form-group two-col">
+          <h2>DPIA</h2>
+          <label for="dpia">Q1: Please confirm that your service will not contain any of the data types referenced:</label>
+          <select id="dpia" name="dpia">
+            <option value="O1">My service will (but not until I have liaised with ISG)</option>
+            <option value="O2">My service will NOT contain any of the data types identified</option>
+          </select>
+        </div>
+        <div class="form-group two-col">
+          <label for="dataOwner">Q2: Data Owner</label>
+          <input type="text" id="dataOwner" name="dataOwner">
+        </div>
+      </div>
+
+      <!-- Section 2: ISD Information - 3 columns -->
+      <div class="form-section">
+        <div class="form-group three-col">
+          <h2>ISD Information</h2>
+          <label for="businessUnit">Q1: Business Unit</label>
+          <select id="businessUnit" name="businessUnit">
+            <option value="O2">bu2</option>
+            <option value="O3">bu3</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+        <div class="form-group three-col">
+          <label for="serviceId">Q2: Service ID</label>
+          <select id="serviceId" name="serviceId">
+            <option value="O1">sid1</option>
+            <option value="O2">sid2</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+        <div class="form-group three-col">
+          <label for="groupEmail">Q3: Group email</label>
+          <input type="email" id="groupEmail" name="groupEmail">
+        </div>
+      </div>
+
+      <!-- Section 3: Virtual Machine Information - all questions are dropdowns -->
+      <div class="form-section">
+        <div class="form-group three-col">
+          <h2>Virtual Machine Information</h2>
+          <label for="operatingSystem">Q1: Operating System</label>
+          <select id="operatingSystem" name="operatingSystem">
+            <option value="O1">Windows Server 2022 Datacenter</option>
+            <option value="O2">Windows Server 2022 Datacenter</option>
+            <option value="O3">RHEL 8</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+        <div class="form-group three-col">
+          <label for="vmSpecification">Q2: Virtual Machine Specification</label>
+          <select id="vmSpecification" name="vmSpecification">
+            <option value="O1">S – 4GB Memory / 2CPU</option>
+            <option value="O2">M – 8GB Memory / 2CPU</option>
+            <option value="O3">L – 16GB Memory / 4CPU</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+        <div class="form-group three-col">
+          <label for="numVms">Q3: How many VMs do you want?</label>
+          <select id="numVms" name="numVms">
+            <option value="O1">S – 4GB Memory / 2CPU</option>
+            <option value="O2">M – 8GB Memory / 2CPU</option>
+            <option value="O3">L – 16GB Memory / 4CPU</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+        <div class="form-group three-col">
+          <label for="numDataDisks">Q4: How many extra Data disks do you want?</label>
+          <select id="numDataDisks" name="numDataDisks">
+            <option value="O1">0</option>
+            <option value="O2">1</option>
+            <option value="O3">2</option>
+            <option value="O4">3</option>
+            <option value="O5">5</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+        <div class="form-group three-col">
+          <label for="dataDiskSize">Q5: Size(GB) of each extra Data disk</label>
+          <select id="dataDiskSize" name="dataDiskSize">
+            <option value="O1">20</option>
+            <option value="O2">50</option>
+            <option value="O3">100</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+        <div class="form-group three-col">
+          <label for="serverRole">Q6: Server Role</label>
+          <select id="serverRole" name="serverRole">
+            <option value="O1">Regular VM</option>
+            <option value="O2">Web</option>
+            <option value="O3">App</option>
+            <option value="O4">DB</option>
+            <option value="O5">WebAp</option>
+            <option value="O6">WebDB</option>
+            <option value="O7">AppDB</option>
+            <option value="O8">WebAppDB</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+        <div class="form-group three-col">
+          <label for="environment">Q7: Environment</label>
+          <select id="environment" name="environment">
+            <option value="O1">Non Production</option>
+            <option value="O2">Production</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Section 4: Virtual Machine Information -->
+      <div class="form-section">
+        <div class="form-group one-col">
+          <h2>Virtual Machine Information</h2>
+          <label for="budgetCode">Q1: Budget Code (use this format: Project.Task.Award)</label>
+          <input type="text" id="budgetCode" name="budgetCode">
+        </div>
+        <div class="form-group one-col">
+          <label for="budgetOwner">Q2: Budget Owner (Company ID)</label>
+          <input type="text" id="budgetOwner" name="budgetOwner">
+        </div>
+      </div>
+
+      <!-- Last Section -->
+      <div class="form-section">
+        <div class="form-group one-col">
+          <h2>Last Section</h2>
+          <label for="additionalInfo">Q1: Additional Information</label>
+          <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <!-- Add the submit button -->
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      // Get the form data
+      const formData = new FormData(event.target);
+
+      // You can access individual fields like formData.get("name"), formData.get("email"), etc.
+
+      // For demonstration purposes, let's log the form data
+      console.log({
+        dpia: formData.get("dpia"),
+        dataOwner: formData.get("dataOwner"),
+        businessUnit: formData.get("businessUnit"),
+        serviceId: formData.get("serviceId"),
+        groupEmail: formData.get("groupEmail"),
+        operatingSystem: formData.get("operatingSystem"),
+        vmSpecification: formData.get("vmSpecification"),
+        numVms: formData.get("numVms"),
+        numDataDisks: formData.get("numDataDisks"),
+        dataDiskSize: formData.get("dataDiskSize"),
+        serverRole: formData.get("serverRole"),
+        environment: formData.get("environment"),
+        budgetCode: formData.get("budgetCode"),
+        budgetOwner: formData.get("budgetOwner"),
+        additionalInfo: formData.get("additionalInfo"),
+      });
+
+      // In a real-world scenario, you would send the data to the backend server using a POST request
+      // For example, you can use fetch() to make the POST request
+      // fetch("your-backend-url", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     dpia: formData.get("dpia"),
+      //     dataOwner: formData.get("dataOwner"),
+      //     businessUnit: formData.get("businessUnit"),
+      //     ...
+      //   }),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      // .then(response => response.json())
+      // .then(data => {
+      //   // Handle the response from the server if needed
+      // });
+
+      // For this example, we'll just show an alert
+      alert("Form submitted successfully!");
+
+      // Optionally, you can reset the form after submission
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>
