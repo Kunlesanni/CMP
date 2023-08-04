@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nice Looking Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group textarea {
+      resize: vertical;
+    }
+    .form-group button[type="submit"] {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* Styles for dropdowns */
+    .form-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="myForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <!-- Dropdown for "Country" -->
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+          <option value="USA">USA</option>
+          <option value="Canada">Canada</option>
+          <option value="UK">UK</option>
+          <option value="Australia">Australia</option>
+          <!-- Add more options here -->
+        </select>
+      </div>
+      <!-- Dropdown for "Interests" (multiple-select) -->
+      <div class="form-group">
+        <label for="interests">Interests:</label>
+        <select id="interests" name="interests[]" multiple>
+          <option value="Coding">Coding</option>
+          <option value="Reading">Reading</option>
+          <option value="Gaming">Gaming</option>
+          <option value="Traveling">Traveling</option>
+          <!-- Add more options here -->
+        </select>
+      </div>
+      <div class="form-group">
+        <!-- Add the submit button back -->
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      // Get the form data
+      const formData = new FormData(event.target);
+
+      // You can access individual fields like formData.get("name"), formData.get("email"), etc.
+
+      // For demonstration purposes, let's log the form data
+      console.log({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+        country: formData.get("country"),
+        interests: formData.getAll("interests"), // Use getAll for multiple-select fields
+      });
+
+      // In a real-world scenario, you would send the data to the backend server using a POST request
+      // For example, you can use fetch() to make the POST request
+      // fetch("your-backend-url", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     name: formData.get("name"),
+      //     email: formData.get("email"),
+      //     message: formData.get("message"),
+      //     country: formData.get("country"),
+      //     interests: formData.getAll("interests"),
+      //   }),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      // .then(response => response.json())
+      // .then(data => {
+      //   // Handle the response from the server if needed
+      // });
+
+      // For this example, we'll just show an alert
+      alert("Form submitted successfully!");
+
+      // Optionally, you can reset the form after submission
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>
