@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nice Looking Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      justify-content: center;
+    }
+    
+    .form-group button[type="submit"] {
+      background-color: #4CAF50;
+      font-size: 18px !important;
+      color: #ffffff;
+      padding: 10px 36px; /* Adjust the padding to make the button smaller */
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: flex-end; /* Align the button to the left side of the form */
+    }
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+
+    .form-section {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+
+    .form-section {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+
+
+
+    .form-group button[type="submit"]:hover {
+      background-color: #3d7440;
+      
+    }
+
+    #myForm {
+      background-color: #f2f2f2;
+      padding: 20px;
+      box-shadow: 4px 4px 4px 4px rgba(1, 1, 1, 0.2);
+      transition: 0.3s;
+      border-radius: 10px;
+    }
+
+    .form-section::after {
+      content: "\a";
+      white-space: pre;
+    }
+
+    .form-section {
+      border-top: 10% solid rgb(1, 1, 1);
+      padding-left: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Updated styling for better alignment */
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea,
+    .form-group select {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    /* Improved label alignment */
+    .form-group label {
+      display: inline-block;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 5px;
+    }
+
+    /* Separator styling */
+    .separator {
+      border-top: 1px solid #ccc;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-top: 10px;
+    }
+
+    /* Column layout */
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    
+    .column2 {
+      float: left;
+      width: 50.00%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    .column1 {
+      float: left;
+      width: 100.00%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    /* Adjusted width for input fields in .column1 */
+    .form-group.column1 input[type="text"],
+    .form-group.column1 input[type="email"],
+    .form-group.column1 textarea,
+    .form-group.column1 select {
+      width: 100%;
+      max-width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="myForm">
+      <!-- Section I: DPIA - dropdown -->
+      <div class="form-section">
+        <h2 id="item-title">DPIA</h2>
+        <div class="row">
+          <div class="form-group column1" style="padding-right: -100px;">
+            <label for="dpia">Q1: Please confirm that your service will not contain any of the data types referenced:</label>
+            <select id="dpia" name="dpia">
+              <option value="O1">My service will (but not until I have liaised with ISG)</option>
+              <option value="O2">My service will NOT contain any of the data types identified</option>
+            </select>
+          </div>
+          <div class="form-group column1" >
+            <label for="dataOwner">Q2: Data Owner</label>
+            <input type="text" id="dataOwner" name="dataOwner">
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+
+      <!-- Section 2: ISD Information - 3 columns -->
+      <div class="form-section">
+        <h2>ISD Information</h2>
+        <div class="row">
+          <div class="form-group column">
+            <label for="businessUnit">Q1: Business Unit</label>
+            <select id="businessUnit" name="businessUnit">
+              <option value="O2">bu2</option>
+              <option value="O3">bu3</option>
+            </select>
+          </div>
+          <div class="form-group column">
+            <label for="groupEmail">Q2: Service ID</label>
+            <input type="email" id="groupEmail" name="groupEmail">
+          </div>
+          <div class="form-group column">
+            <label for="groupEmail">Q3: Group email</label>
+            <input type="email" id="groupEmail" name="groupEmail">
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+
+      <!-- Section 3: Virtual Machine Information - all questions are dropdowns -->
+      <div class="form-section">
+        <h2>Virtual Machine Information</h2>
+        <div class="row">
+          <div class="form-group column">
+            <label for="operatingSystem">Q1: Operating System</label>
+            <select id="operatingSystem" name="operatingSystem">
+              <option value="O1">Windows Server 2022 Datacenter</option>
+              <option value="O2">Windows Server 2022 Datacenter</option>
+              <option value="O3">RHEL 8</option>
+            </select>
+          </div>
+
+          <div class="form-group column">
+            <label for="environment">Q2: Environment</label>
+            <select id="environment" name="environment">
+              <option value="O1">Non Production</option>
+              <option value="O2">Production</option>
+            </select>
+          </div>
+          <div class="form-group column">
+            <label for="numVms">Q3: How many VMs do you want?</label>
+            <select id="numVms" name="numVms">
+              <option value="O1">S – 4GB Memory / 2CPU</option>
+              <option value="O2">M – 8GB Memory / 2CPU</option>
+              <option value="O3">L – 16GB Memory / 4CPU</option>
+              <!-- Add more options here -->
+            </select>
+          </div>
+          
+
+          <div class="form-group column">
+            <label for="dataDiskSize">Q4: Size(GB) of each extra Data disk</label>
+            <select id="dataDiskSize" name="dataDiskSize">
+              <option value="O1">20</option>
+              <option value="O2">50</option>
+              <option value="O3">100</option>
+            </select>
+          </div>
+          <div class="form-group column">
+            <label for="serverRole">Q5: Server Role</label>
+            <select id="serverRole" name="serverRole">
+              <option value="O1">Regular VM</option>
+              <option value="O2">Web</option>
+              <option value="O3">App</option>
+              <option value="O4">DB</option>
+              <option value="O5">WebAp</option>
+              <option value="O6">WebDB</option>
+              <option value="O7">AppDB</option>
+              <option value="O8">WebAppDB</option>
+            </select>
+          </div>
+          
+          <div class="form-group column">
+            <label for="vmSpecification">Q6: Virtual Machine Specification</label>
+            <select id="vmSpecification" name="vmSpecification">
+              <option value="O1">S – 4GB Memory / 2CPU</option>
+              <option value="O2">M – 8GB Memory / 2CPU</option>
+              <option value="O3">L – 16GB Memory / 4CPU</option>
+            </select>
+          </div>
+          
+          <div class="form-group column">
+            <label for="numDataDisks">Q7: How many extra Data disks do you want?</label>
+            <select id="numDataDisks" name="numDataDisks">
+              <option value="O1">0</option>
+              <option value="O2">1</option>
+              <option value="O3">2</option>
+              <option value="O4">3</option>
+              <option value="O5">5</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+
+      <!-- Section 4: Virtual Machine Information -->
+      <div class="form-section">
+        <h2 id="item-title">Virtual Machine Information</h2>
+        <div class="row">
+          <div class="form-group column2">
+            <label for="budgetCode" >Q1: Budget Code (use this format: Project.Task.Award) </label>
+            <input type="text" id="budgetCode" name="budgetCode">
+          </div>
+          
+          <div class="form-group column2">
+            <label for="budgetOwner">Q2: Budget Owner (Company ID)</label>
+            <input type="text" id="budgetOwner" name="budgetOwner">
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+
+      <!-- Last Section -->
+      <div class="form-section">
+        <h2 id="item-title">Last Section</h2>
+        <div class="form-group">
+          <label for="additionalInfo">Q1: Additional Information</label>
+          <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+        </div>
+      </div>
+      <div class="separator"></div>
+
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      console.log({
+        dpia: formData.get("dpia"),
+        dataOwner: formData.get("dataOwner"),
+        businessUnit: formData.get("businessUnit"),
+        // Add other form fields here
+      });
+      alert("Form submitted successfully!");
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>
