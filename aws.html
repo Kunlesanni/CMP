@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Nice Looking Form</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="sidenav.css">
+   <link rel="stylesheet" href="nav.css">
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<!-- Content from Navbar.html -->
+<div class="navbar">
+  <div class="logo-container">
+      <a href="main.html">
+          <img class="logo" src="images/home.png" alt="logo">
+      </a>
+      
+   </div>
+   <div class="profile-dropdown">
+      <a class="profile-page" href="#">
+         <img class="profile-image" src="images/profile.jpg" alt="profile image">
+      </a>
+      <div class="dropdown-content" id="dropdownContent">
+         <h4>User Information</h4>
+         <p>Name: John Doe</p>
+         <p>Email: johndoe@example.com</p>
+         <p>Role: Admin</p>
+         <a href="#">Logout</a>
+      </div>
+   </div>
+</div>
+
+<!-- Content from sidenavbar.html -->
+  <div class="side-nav">
+    
+    <div class= "platforms">
+      <ul>
+      <li class="azure">
+          <a href="azure.html"> 
+              <img src="images/azure.png" alt="">
+              <p> Azure </p>
+          </a>
+      </li>
+        <li class="aws">
+          <a href="aws.html"> 
+              <img src="images/aws.png" alt="">
+              <p> AWS </p>
+          </a>
+        </li>
+        <li class="onpremise">
+          <a href="onpremises.html"> 
+              <img src="images/onpremises.png" alt="">
+              <p> On Premises</p>
+          </a>
+      </li>
+      <li class="database">
+          <a href="database.html"> 
+              <img src="images/database.png" alt="">
+              <p> Database </p>
+          </a>
+      </li>
+      <li class="catelogue">
+          <a href="catalogue.html"> 
+              <img src="images/catalogue.png" alt="">
+              <p> Catalogue</p>
+          </a>
+      </li>
+      </ul>
+    </div>
+  </div>
+<div class="container">
+
+<!-- End sidenavbar.html -->
+  <div class="container">
+  
+    <form id="myForm">
+
+        <!-- Section I: DPIA - dropdown -->
+        <div class="form-section">
+          <h2 id="item-title">DPIA</h2>
+          <div class="row">
+            <div class="form-group column1" style="padding-right: -100px;">
+              <label for="dpia">Q1: Please confirm that your service will not contain any of the data types referenced:</label>
+              <select id="dpia" name="dpia">
+                <option value="O1">My service will (but not until I have liaised with ISG)</option>
+                <option value="O2">My service will NOT contain any of the data types identified</option>
+              </select>
+            </div>
+            <div class="form-group column1" >
+              <label for="dataOwner">Q2: Data Owner</label>
+              <input type="text" id="dataOwner" name="dataOwner">
+            </div>
+          </div>
+        </div>
+        <div class="separator"></div>
+  
+          <!-- Section 2: ISD Information - 3 columns -->
+          <div class="form-section">
+            <h2>ISD Information</h2>
+            <div class="row">
+              <div class="form-group column">
+                <label for="businessUnit">Q1: Business Unit</label>
+                <select id="businessUnit" name="businessUnit">
+                  <!-- Business unit options will be dynamically populated here -->
+                </select>
+              </div>
+              <div class="form-group column">
+                <label for="serviceId">Q2: Service ID</label>
+                <select id="serviceId" name="serviceId">
+                  <!-- Service ID options will be dynamically populated here -->
+                </select>
+              </div>
+              <div class="form-group column">
+                <label for="groupEmail">Q3: Group email</label>
+                <input type="email" id="groupEmail" name="groupEmail">
+              </div>
+            </div>
+          </div>
+  
+        <!-- Last Section -->
+        <div class="form-section">
+          <h2 id="item-title">Last Section</h2>
+          <div class="form-group"> 
+            <label for="additionalInfo">Q1: Additional Information</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+          </div>
+        </div>
+        <div class="separator"></div>
+  
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+  </div> 
+  <!-- Your scripts and closing tags here -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const response = await fetch("data.json");
+      const data = await response.json();
+      const businessUnitSelect = document.getElementById("businessUnit");
+      const serviceIdSelect = document.getElementById("serviceId");
+  
+      data.businessUnits.forEach(unit => {
+        const option = document.createElement("option");
+        option.value = unit.value;
+        option.textContent = unit.label;
+        businessUnitSelect.appendChild(option);
+      });
+  
+      businessUnitSelect.addEventListener("change", function () {
+        const selectedValue = businessUnitSelect.value;
+        const selectedUnit = data.businessUnits.find(unit => unit.value === selectedValue);
+  
+        serviceIdSelect.innerHTML = ""; // Clear existing options
+  
+        if (selectedUnit) {
+          selectedUnit.serviceIdSection.forEach(serviceId => {
+            const option = document.createElement("option");
+            option.value = serviceId;
+            option.textContent = serviceId;
+            serviceIdSelect.appendChild(option);
+          });
+        }
+      });
+  
+      // Rest of your script ...
+    });
+  </script>
+</body>
+</html>

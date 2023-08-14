@@ -1,0 +1,32 @@
+{
+  "businessUnits": [
+    {
+      "value": "bu5",
+      "label": "Business Unit 5",
+      "serviceIdSection": [
+        "service89@example.com",
+        "service2987@example.com"
+      ]
+    },
+    {
+      "value": "bu6",
+      "label": "Business Unit 6",
+      "serviceIdSection": [
+        "service3@example.com",
+        "service4@example.com",
+        "service5@example.com"
+      ]
+    },
+    {
+      "value": "bu7",
+      "label": "Business Unit 7",
+      "serviceIdSection": [
+        "service3@example.com",
+        "service4@example.com",
+        "service5@example.com",
+        "service5@example.com",
+        "service5@example.com"
+      ]
+    }
+  ]
+}

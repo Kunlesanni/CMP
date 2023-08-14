@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Nice Looking Form</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="sidenav.css">
+   <link rel="stylesheet" href="nav.css">
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo-container">
+            <a href="main.html">
+                <img class="logo" src="images/home.png" alt="logo">
+            </a>
+            
+         </div>
+         <div class="profile-dropdown">
+            <a class="profile-page" href="#">
+               <img class="profile-image" src="images/profile.jpg" alt="profile image">
+            </a>
+            <div class="dropdown-content" id="dropdownContent">
+               <h4>User Information</h4>
+               <p>Name: John Doe</p>
+               <p>Email: johndoe@example.com</p>
+               <p>Role: Admin</p>
+               <a href="#">Logout</a>
+            </div>
+         </div>
+    </div>
+
+
+        <div class="side-nav">
+          <!-- Content from sidenavbar.html -->
+          <div class= "platforms">
+            <ul>
+            <li>
+                <a href="azure.html"> 
+                    <img src="images/azure.png" alt="">
+                    <p> Azure </p>
+                </a>
+            </li>
+              <li>
+                <a href="aws.html"> 
+                    <img src="images/aws.png" alt="">
+                    <p> AWS </p>
+                </a>
+              </li>
+              <li>
+                <a href="onpremises.html"> 
+                    <img src="images/onpremises.png" alt="">
+                    <p> On Premises</p>
+                </a>
+            </li>
+            <li>
+                <a href="database.html"> 
+                    <img src="images/database.png" alt="">
+                    <p> Database </p>
+                </a>
+            </li>
+            <li>
+                <a href="catalogue.html"> 
+                    <img src="images/catalogue.png" alt="">
+                    <p> Catalogue</p>
+                </a>
+            </li>
+            </ul>
+          </div>
+        </div>
+        
+  <!-- catelogue Code section here -->
+  <div class="container">
+    <div class="gallery">
+    
+      <div class="content">
+        <img src="images/azure.png" alt="">
+        <p> fhfibriubruyrb nroinruruirbi rbi nreoueoiuronorinonwroi</p>
+        <h6> Basic server Configuration</h6>
+        <ul>
+          <li> <i class="fa fa-star checked"> </i></li>
+          <li> <i class="fa fa-star checked"> </i></li>
+          <li> <i class="fa fa-star checked"> </i></li>
+          <li> <i class="fa fa-star checked"> </i></li>
+          <li> <i class="fa fa-star"> </i></li>
+        </ul>
+      </div>
+    
+    </div>
+  
+  
+  </div> 
+  <!-- Your scripts and closing tags here -->
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const response = await fetch("data.json");
+      const data = await response.json();
+      const businessUnitSelect = document.getElementById("businessUnit");
+      const serviceIdSelect = document.getElementById("serviceId");
+  
+      data.businessUnits.forEach(unit => {
+        const option = document.createElement("option");
+        option.value = unit.value;
+        option.textContent = unit.label;
+        businessUnitSelect.appendChild(option);
+      });
+  
+      businessUnitSelect.addEventListener("change", function () {
+        const selectedValue = businessUnitSelect.value;
+        const selectedUnit = data.businessUnits.find(unit => unit.value === selectedValue);
+  
+        serviceIdSelect.innerHTML = ""; // Clear existing options
+  
+        if (selectedUnit) {
+          selectedUnit.serviceIdSection.forEach(serviceId => {
+            const option = document.createElement("option");
+            option.value = serviceId;
+            option.textContent = serviceId;
+            serviceIdSelect.appendChild(option);
+          });
+        }
+      });
+  
+      // Rest of your script ...
+    });
+  </script>
+</body>
+</html>

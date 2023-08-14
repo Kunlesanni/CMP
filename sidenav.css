@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* .header {
+    width: 100%;
+    height: 100vh;
+} */
+
+
+.side-nav {
+    width: 80px;
+    height: 100%;
+    position: fixed;
+    top: 4%;
+    left: 0;
+    z-index: 1;
+    color: rgba(30, 31, 32, 0.9);
+    overflow-x: hidden;
+    padding-top: 30px 15px;
+    /* background: rgba(136, 141, 232, 0.808); */
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    backdrop-filter: blur(5px);
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    transition: width 0.4s;
+}
+
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50px;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding-top: 20%;
+}
+
+.user div{
+    display: none;
+}
+
+
+.user h2 {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.img-responsive {
+    width: 40px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+ul {
+    list-style: none;
+    padding: 70px 20px;
+    align-items: center;
+}
+
+ul li {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* cursor: pointer; */
+}
+
+ul li img {
+    width: 20px;
+    margin-right: 0px;
+}
+
+ul li p { 
+    white-space: nowrap;
+    display: none;
+}
+
+.side-nav:hover {
+    width: 200px;
+    
+}
+
+.side-nav:hover .user div {
+    display: block;
+    }
+    
+.side-nav:hover .user {
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+}
+
+.side-nav:hover .user-img {
+    margin: 0;
+
+}
+
+
+.side-nav:hover ul li p {
+    display: block;
+}
+
+.side-nav:hover ul li img {
+    margin-right: 10px;
+}
+
+.side-nav:hover ul li {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Update the CSS for the navigation menu items */
+.side-nav:hover .platforms ul li {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.side-nav:hover .platforms ul li a {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Use the parent element's text color */
+    display: flex;
+    align-items: center;
+    transition: color 0.3s; /* Add a smooth color transition */
+}
+
+.side-nav:hover .platforms ul li a img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.side-nav:hover .platforms ul li a p {
+    white-space: nowrap;
+    display: block;
+    margin: 0;
+}
+
+.side-nav .platforms ul li.azure:hover a {
+    color: #0074D9; /* Change color on hover for Azure */
+}
+
+.side-nav .platforms ul li.aws:hover a {
+    color: #FF851B; 
+     /* Change color on hover for AWS */
+}
+
+.side-nav .platforms ul li.onpremise:hover a {
+    color: #09561294; /* Change color on hover for On Premises */
+}
+
+.side-nav .platforms ul li.database:hover a {
+    color: #FF4136;/* Change color on hover for Database */
+}
+
+.side-nav .platforms ul li.catelogue:hover a {
+    color: #c90d58; /* Change color on hover for Catalogue */
+}
+
